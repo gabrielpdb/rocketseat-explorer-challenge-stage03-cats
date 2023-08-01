@@ -13,9 +13,16 @@
   --platform-aliases-shape-principal: #202024;
 }
 
-body {
+body,
+input,
+input::placeholder,
+button {
   font-family: 'Mulish', sans-serif;
   font-size: 1.6rem;
+}
+
+.container {
+  padding: 0 2.2rem;
 }
 
 header,
@@ -23,21 +30,23 @@ footer {
   background: var(--brand-colors-explorer-dark);
 }
 
-.container {
-  padding: 2.4rem;
-  margin: 0 auto;
-}
-
-header {
+header.container {
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 2.5rem;
-  padding: 1.6rem 0;
+  gap: 2.4rem;
+  justify-content: space-between;
+  padding: 1.2rem 2.2rem;
+}
+
+header img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
 }
 
 header form,
-header .input-wrapper {
+header form .input-wrapper {
   width: 100%;
 }
 
@@ -50,122 +59,127 @@ header form label {
 
 header form input {
   width: 100%;
-  font-family: Mulish;
+  padding: 1.2rem 1.4rem;
+  border-radius: 0.4rem;
+  border: none;
+  background-color: hsla(195, 46%, 40%, 1);
+
   color: #fff;
   font-size: 1.6rem;
   font-weight: 600;
   line-height: 100%;
-
-  background-color: hsla(195, 46%, 40%, 1);
-  outline: none;
-  border: none;
-  padding: 1.2rem 1.6rem;
-  border-radius: 0.4rem;
 }
 
 header form input::placeholder {
-  font-family: Mulish;
   color: #fff;
   font-size: 1.6rem;
   font-weight: 600;
   line-height: 100%;
 }
 
-header img {
-  width: 4.2rem;
-  height: 4.2rem;
-  object-fit: contain;
-  border-radius: 50%;
+main {
+  margin-bottom: 3.4rem;
 }
 
-.cover-image {
+main .cover-image {
   width: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
-h3 {
+main .main-header {
+  margin: 3.1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: start;
+}
+
+h2 {
   font-size: 2.4rem;
   font-weight: 700;
   line-height: 160%;
-  color: var(--platform-aliases-shape-principal);
 }
 
-main {
-  margin-bottom: 3.2rem;
-}
-
-.rating-buttons {
-  margin: 0.8rem 0 3rem 0;
-
+main .main-header .rating-buttons {
   display: flex;
   align-items: center;
   gap: 1.2rem;
 }
 
-.rating-buttons button {
-  background-color: var(--brand-colors-explorer-dark);
-  outline: none;
+main .main-header .rating-buttons button {
+  width: 4rem;
+  height: 4rem;
+  background: var(--brand-colors-explorer-dark);
+  padding: 1.2rem;
   border: none;
   border-radius: 50%;
-  padding: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.text {
-  color: var(--platform-aliases-shape-principal);
+main .main-header .text {
+  color: var(--platform-aliases-background);
   font-size: 1.6rem;
-  font-weight: 400;
-  line-height: 160%;
-}
-
-section ul {
-  margin-top: 3.2rem;
-  list-style: none;
-}
-
-section .items {
-  display: flex;
-  flex-direction: column;
-  gap: 3.2rem;
-}
-
-section .item {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 1.6rem;
-  align-items: center;
-}
-
-section .item img {
-  flex: 1;
-  width: 15rem;
-  height: 8.4rem;
-  border-radius: 0.5rem;
-  object-fit: cover;
-}
-
-section .item .description h3 {
-  color: var(--platform-aliases-shape-principal);
-  font-size: 1.8rem;
-  font-weight: 700;
-  line-height: 160%;
-}
-
-section .item .description p {
-  color: var(--platform-aliases-shape-principal);
-  font-size: 1.4rem;
   font-weight: 400;
   line-height: 160%;
 }
 
 footer {
-  width: 100%;
-  text-align: center;
-  font-weight: 600;
-  font-size: 1.6rem;
-  line-height: normal;
-  color: #fff;
   padding: 1.6rem;
+  text-align: center;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+section img {
+  width: 10px;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0;
+  }
+
+  body {
+    display: grid;
+    grid-template-areas:
+      'header header header'
+      'main main section'
+      'footer footer footer';
+    gap: 3.4rem;
+  }
+
+  header.container {
+    grid-area: header;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+    justify-content: space-between;
+    padding: 1.2rem 11.2rem;
+  }
+
+  main {
+    grid-area: main;
+    padding-left: 11.2rem;
+  }
+
+  main .cover-image {
+    width: 100%;
+    border-radius: 0.5rem;
+  }
+
+  main .main-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  section.container {
+    grid-area: section;
+    padding-right: 11.2rem;
+  }
+
+  footer {
+    grid-area: footer;
+  }
 }

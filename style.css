@@ -85,6 +85,7 @@ main {
 main .cover-image {
   width: 100%;
   object-fit: cover;
+  animation: appear 1000ms;
 }
 
 main .main-header {
@@ -165,6 +166,46 @@ section .items .item .description p {
   line-height: 160%;
 }
 
+section .items .item:nth-child(1) img {
+  animation: appear 500ms;
+}
+
+section .items .item:nth-child(1) .description {
+  animation: moveLeft 500ms;
+}
+
+section .items .item:nth-child(2) img {
+  animation: appear 1500ms;
+}
+
+section .items .item:nth-child(2) .description {
+  animation: moveLeft 1500ms;
+}
+
+section .items .item:nth-child(3) img {
+  animation: appear 2000ms;
+}
+
+section .items .item:nth-child(3) .description {
+  animation: moveLeft 2000ms;
+}
+
+section .items .item:nth-child(4) img {
+  animation: appear 2500ms;
+}
+
+section .items .item:nth-child(4) .description {
+  animation: moveLeft 2500ms;
+}
+
+section .items .item:nth-child(5) img {
+  animation: appear 3000ms;
+}
+
+section .items .item:nth-child(5) .description {
+  animation: moveLeft 3000ms;
+}
+
 footer {
   padding: 1.6rem;
   text-align: center;
@@ -220,5 +261,27 @@ footer {
 
   footer {
     grid-area: footer;
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes moveLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(+50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
